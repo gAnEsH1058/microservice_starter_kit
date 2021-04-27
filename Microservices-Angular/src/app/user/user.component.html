@@ -1,0 +1,107 @@
+
+
+<div class="table table-bordered table-striped" >
+<div class="table">
+<div class="col-md-10">
+    <head>
+    <style>
+     ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      margin-left:21%; 
+      margin-right: 0%;
+    }
+    
+    li {
+      float: right;
+    }
+
+    align1{
+    margin-left:21%;
+    padding:220px;
+}
+    li a {
+      display: block;
+      color: white;
+      text-align: left;
+      padding: 5px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      background-color: #111;
+    }
+    .button{
+      float: right;
+      text-align: right;
+    }
+    .patient
+    {
+      text-align: center;
+      font-weight: bold;
+      padding-left: 5%;
+    
+    }
+    </style>
+    </head>
+    <body>
+<ul>
+  <li><a routerLink="/help">Service</a></li>
+  <li><a routerLink="/about">About</a></li>
+  <li><a routerLink="/contactus">Contact</a></li>
+  <li><a href="#patient">Patient Listing</a></li>
+</ul>
+</body> 
+<div class="patient"><h3 ><div class="patient"><img src="../assets/images/patient.png" width="40px" height="40px" style="float: center" >Patient Details
+    <div class="button"><br><button class="btn btn-success" (click)="createUser()" >  +Add patient</button></div></div>
+    </h3> </div>
+<br>
+      <table  class="table  table-bordered table-striped" class="center" >
+        <thead class="thead-dark">
+        <tr>
+          <th class="hidden" >Id</th>
+          <th >FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>PhoneNo.</th>
+        <th>Age</th>
+        <th >Action</th>
+        <th></th>
+    <th></th>
+        </tr>
+        
+        </thead>
+   
+    <tbody >
+        
+    <tr *ngFor="let user of users">
+      <td class="hidden" >{{user.id}}</td>
+      <td >{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+    <td>{{user.phoneNO}}</td>
+    <td>{{user.age}}</td>
+  
+    <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button></td>
+    <td><button class="btn btn btn-dark" (click)="updateUser(user)"> Edit </button></td>
+    <td><button class="btn btn btn-secondary" [routerLink]="['/view/'+user.id]">view</button></td>
+
+    </tr>
+  
+    </tbody>
+    
+  </table>
+
+  
+  <footer>
+      <p class="footer">
+          © Copyright 2019 Citiustech. All rights reserved.
+      </p>
+  </footer>
+
+</div>
+  </div>
+  

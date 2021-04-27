@@ -1,0 +1,56 @@
+
+<head>
+<style>
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  padding:20px;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  } 
+
+</style>
+</head>
+<div class="center">
+<div class="col-md-10 offset-sm-3 text-center">
+  
+  <p style="color:#e61010" > <font face="Arial Verdana"><h2 class="display-4">Patient Inforamtion</h2></font></p>
+<form (ngSubmit)="processForm()">
+  <div class="form-group" align="left">
+    <label for="email">Email address:</label>
+    <input type="email" [(ngModel)]="user.email" placeholder="Email" name="email" class="form-control" id="email">
+  </div>
+
+  <div class="form-group" align="left">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+  </div>
+
+  <div class="form-group" align="left">
+    <label for="lastName">Last Name:</label>
+    <input [(ngModel)]="user.lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+  </div>
+  
+  <div class="form-group" align="left">
+    <label for="birthDate">Birthdate:</label>
+    <input [(ngModel)]="user.birthDate" placeholder="Birthdate(dd/mm/yyyy)" name="birthDate" class="form-control" id="birthDate">
+  </div>
+  
+  <div class="form-group" align="left">
+    <label for="phoneNO">Phone No:</label>
+    <input [(ngModel)]="user.phoneNO" placeholder="Phone No" name="phoneNO" class="form-control" id="phoneNO">
+  </div>
+  
+  <div class="form-group" align="left">
+    <label for="age">Age:</label>
+    <input [(ngModel)]="user.age" placeholder="Age" name="age" class="form-control" id="age">
+
+  </div>
+  
+  <input type="submit" value="save" class="btn btn-success">
+
+</form>
+</div>
+</div>

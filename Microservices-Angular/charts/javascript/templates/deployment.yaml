@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment                                          # 1
+metadata:
+  name: angular-frontend
+spec:
+  replicas: 2                                             # 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # 3
+    rollingUpdate: 
+      maxUnavailable: 1                                   # 4
+      maxSurge: 1                                         # 5
+  template:
+    metadata:
+      labels:
+        app: angualr-frontend                                  # 6
+    spec:
+      containers:
+        - image: 715146130151.dkr.ecr.us-east-2.amazonaws.com/angular:100
+          imagePullPolicy: Always                         # 7
+          name: angular-frontend
+          ports:
+            - containerPort: 80
