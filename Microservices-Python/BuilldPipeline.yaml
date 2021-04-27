@@ -1,0 +1,33 @@
+pool:
+  vmImage: Hosted Ubuntu 1604
+steps:
+- task: Docker@0
+  displayName: 'Build an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'bluprint acr connection'
+    buildArguments: '--pull'
+    defaultContext: false
+    context: '$(Build.Repository.LocalPath)'
+    imageName: 'python:$(Build.BuildId)'
+
+- task: Docker@0
+  displayName: 'Push an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'bluprint acr connection'
+    action: 'Push an image'
+    imageName: 'python:$(Build.BuildId)'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/*.yaml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop yaml'
+  inputs:
+    ArtifactName: yml

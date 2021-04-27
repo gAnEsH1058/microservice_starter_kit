@@ -1,0 +1,10 @@
+com/sa/web/HostController.class
+com/sa/web/HostDetailsWebApp.class
+com/devglan/userportal/UserServiceImpl.class
+com/devglan/userportal/UserPortalApplication.class
+com/devglan/userportal/UserController.class
+com/devglan/userportal/ExceptionHandlerController.class
+com/sa/web/dto/MachineDetails.class
+com/devglan/userportal/User.class
+com/devglan/userportal/UserRepository.class
+com/devglan/userportal/UserService.class
