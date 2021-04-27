@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment                                          # 1
+metadata:
+  name: angular-frontend
+spec:
+  replicas: 1                                             # 2
+  selector:
+    matchLabels:
+      app: angualr-frontend 
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # 3
+    rollingUpdate: 
+      maxUnavailable: 1                                   # 4
+      maxSurge: 1                                         # 5
+  template:
+    metadata:
+      labels:
+        app: angualr-frontend                                  # 6
+    spec:
+      containers:
+        - image: 715146130151.dkr.ecr.us-east-2.amazonaws.com/angular:v0.6
+          imagePullPolicy: Always                         # 7
+          name: angular-frontend
+          ports:
+            - containerPort: 80

@@ -1,0 +1,35 @@
+## Requirements
+
+| Name | Version |
+|------|---------|
+| aws | >= 2.38.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | >= 2.38.0 |
+| null | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| accessKey | Access key to access your AWS account | `string` | n/a | yes |
+| cluster-name | n/a | `string` | `"terraform-eks-demo"` | no |
+| desired-count | Desired number of worker nodes to be created | `number` | n/a | yes |
+| environment | Environment in which the infrastructure will be setup | `string` | n/a | yes |
+| instance-type | Type of instance to be used to create worker nodes | `string` | n/a | yes |
+| owner | Owner of the EKS cluster | `string` | n/a | yes |
+| purpose | Purpose for setting up the cluster (Example: Development) | `string` | n/a | yes |
+| region | Resources will be spawned in this region | `string` | n/a | yes |
+| secretAccessKey | Secret Access key to access your AWS account | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| config\_map\_aws\_auth | n/a |
+| ingress\_controller | n/a |
+| kubeconfig | n/a |
+

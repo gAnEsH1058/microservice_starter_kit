@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-hostdetails
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-hostdetails
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: spring-hostdetails
+    spec:
+      containers:
+      - image: 715146130151.dkr.ecr.us-east-2.amazonaws.com/spring:09072020
+        imagePullPolicy: Always
+        name: spring-hostdetails
+        env:
+          - name: SA_LOGIC_API_URL
+            value: "http://sa-logic:80"
+        ports:
+          - containerPort: 8080
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
