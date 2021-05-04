@@ -5,5 +5,5 @@ region          = "us-east-1"
 instance-type   = "t2.large"
 desired-count   = 1
 environment     = "Dev"
-owner           = "Shreyans"
-purpose         = "Development"
+owner           = "GaneshM"
+purpose         = "HealthcareAPI Platform"
